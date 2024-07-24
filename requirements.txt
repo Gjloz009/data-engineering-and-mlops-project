@@ -1,0 +1,4 @@
+jupyter 
+polars
+s3fs
+apache-airflow
