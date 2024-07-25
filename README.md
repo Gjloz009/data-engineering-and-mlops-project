@@ -14,8 +14,8 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 ## Index
 - 1.[Objective](#1-objective)
 - 2.[Technologies](#2-technologies)
-  - 2.1.[Alternative A - Local](#21-alternative-a---Only-one-host-machine)
-  - 2.2.[Alternative B - Cloud](#22-alternative-b---user-machine-plus-server-machine)
+  - 2.1.[Alternative A - Only one host machine.](#21-alternative-a---Only-one-host-machine)
+  - 2.2.[Alternative B - User plus server machine.](#22-alternative-b---user-machine-plus-server-machine)
 - 3.[Data Architecture](#3-data-architecture)
 - 5.[Data description](#5-data-description)
 - 6.[Instructions on how to replicate the project](#6-instructions-on-how-to-replicate-the-project)
