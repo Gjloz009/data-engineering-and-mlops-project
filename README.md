@@ -83,7 +83,7 @@ After installed Miniconda environment please install the requirements file
   <b>Terraform</b>:  is an open-source infrastructure-as-code software tool. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
   </p>
 
-  - <p align="justify">
+- <p align="justify">
   <b>Jupyter</b>:  is an open-source project that provides an interactive computing environment.
   </p>
 
@@ -91,11 +91,11 @@ After installed Miniconda environment please install the requirements file
   <b>Polars</b>:  is a data manipulation library.
   </p>
 
-  - <p align="justify">
+- <p align="justify">
   <b>Sci-kit Learn</b>:  is a machine learning library.
   </p>
   
-  - <p align="justify">
+- <p align="justify">
   <b>s3fs</b>:  Library that provides a filesystem interface to Amazon S3.
   </p>
   
@@ -125,7 +125,7 @@ After installed Miniconda environment please install the requirements file
   <b>Terraform</b>:  is an open-source infrastructure-as-code software tool. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
   </p>
 
-  - <p align="justify">
+- <p align="justify">
   <b>Jupyter</b>:  is an open-source project that provides an interactive computing environment.
   </p>
 
@@ -133,11 +133,11 @@ After installed Miniconda environment please install the requirements file
   <b>Polars</b>:  is a data manipulation library.
   </p>
 
-  - <p align="justify">
+- <p align="justify">
   <b>Sci-kit Learn</b>:  is a machine learning library.
   </p>
   
-  - <p align="justify">
+- <p align="justify">
   <b>s3fs</b>:  Library that provides a filesystem interface to Amazon S3.
   </p>
   
