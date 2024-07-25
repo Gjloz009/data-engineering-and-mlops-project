@@ -13,10 +13,10 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 ---
 ## Index
 - 1.[Objective](#1-objective)
-- 2.[Technologies](#3-technologies)
-  - 2.1.[Alternative A - Local](#31-alternative-a---local)
-  - 2.2.[Alternative B - Cloud](#32-alternative-b---cloud)
-- 3.[Data Architecture](#4-data-architecture)
+- 2.[Technologies](#2-technologies)
+  - 2.1.[Alternative A - Local](#21-alternative-a---Only-one-host-machine)
+  - 2.2.[Alternative B - Cloud](#22-alternative-b---user-machine-plus-server-machine)
+- 3.[Data Architecture](#3-data-architecture)
 - 5.[Data description](#5-data-description)
 - 6.[Instructions on how to replicate the project](#6-instructions-on-how-to-replicate-the-project)
   - 6.1.[Setting up Google Cloud Platform account](#61-setting-up-google-cloud-platform-account)
@@ -83,6 +83,22 @@ After installed Miniconda environment please install the requirements file
   <b>Terraform</b>:  is an open-source infrastructure-as-code software tool. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
   </p>
 
+  - <p align="justify">
+  <b>Jupyter</b>:  is an open-source project that provides an interactive computing environment.
+  </p>
+
+- <p align="justify">
+  <b>Polars</b>:  is a data manipulation library.
+  </p>
+
+  - <p align="justify">
+  <b>Sci-kit Learn</b>:  is a machine learning library.
+  </p>
+  
+  - <p align="justify">
+  <b>s3fs</b>:  Library that provides a filesystem interface to Amazon S3.
+  </p>
+  
 - <b>Amazon Web Service</b>:
 
   -	S3
@@ -109,6 +125,22 @@ After installed Miniconda environment please install the requirements file
   <b>Terraform</b>:  is an open-source infrastructure-as-code software tool. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
   </p>
 
+  - <p align="justify">
+  <b>Jupyter</b>:  is an open-source project that provides an interactive computing environment.
+  </p>
+
+- <p align="justify">
+  <b>Polars</b>:  is a data manipulation library.
+  </p>
+
+  - <p align="justify">
+  <b>Sci-kit Learn</b>:  is a machine learning library.
+  </p>
+  
+  - <p align="justify">
+  <b>s3fs</b>:  Library that provides a filesystem interface to Amazon S3.
+  </p>
+  
 - <b>Amazon Web Service</b>:
 
   -	S3
