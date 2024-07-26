@@ -140,3 +140,41 @@ terraform -help
 
 > https://developer.hashicorp.com/terraform/install?product_intent=terraform
 
+---
+
+<p align="justify">
+6. Install <code>AWS CLI</code> , download the zip file and install it using the next commands
+</p>
+
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+confirm the installation 
+
+```
+aws --version
+```
+<p align="center">
+  <img src="images\aws_1.png">
+</p>
+
+> https://docs.aws.amazon.com/es_es/cli/latest/userguide/getting-started-install.html
+
+---
+
+<p align="justify">
+7. Install <code>requirements.txt</code> , Once Conda is installed you can install the python libraries that are needed
+</p>
+
+```
+pip install -r requirements.txt
+```
+---
+
+After all your instance maybe look like this.
+
+<p align="center">
+  <img src="images\almost_done.png">
+</p>
