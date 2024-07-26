@@ -219,7 +219,11 @@ aws s3 ls
 
 #### 6.1.3 Creating services with docker-compose
 
-Inside of directory airflow_mlflow_files please create a .env file with these variables and fill then with your own choises. Be carefull the name you use in the POSTGRESS_DB variable because it is going to be the db used for airflow so maybe is better to leave it just like this but is up to you. 
+Inside of directory airflow_mlflow_files please create a .env file with these variables and fill then with your own choises. Be carefull the name you use in the POSTGRESS_DB variable because it is going to be the db used for airflow so maybe is better to leave it just like this but is up to you. The AIRFLOW_UID is only your user id you can see it using the command id -u. Also create these directories if they dont exists.
+
+```
+mkdir -p ./dags ./logs ./plugins ./config
+```
 
 ```
 AIRFLOW_UID=1001
