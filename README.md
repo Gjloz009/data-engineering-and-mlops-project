@@ -150,11 +150,12 @@ After installed Miniconda environment please install the requirements file
   </p>
   
 ## 3. Data Architecture
-
+Alternative A
 <p align="center">
   <img src="images\diagram_v2.svg">
 </p>
 
+Alternative B
 <p align="center">
   <img src="images\diagram_v3.svg">
 </p>
