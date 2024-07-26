@@ -192,7 +192,8 @@ Install the listed tools in your instance:
 - terraform
 - git
 - AWS
-If you want steps for installing those tools, please check [`here`](./machine_configuration.md).
+  
+If you want steps for installing those tools, please check [`here`](./create_instance.md).
 
 #### 6.1.2 Creating fyle system.
 
