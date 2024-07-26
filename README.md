@@ -14,10 +14,10 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 ## Index
 - 1.[Objective](#1-objective)
 - 2.[Technologies](#2-technologies)
-  - 2.1.[Alternative A - Only one host machine.](#21-alternative-a---Only-one-host-machine)
+  - 2.1.[Alternative A - One host machine.](#21-alternative-a---one-host-machine)
   - 2.2.[Alternative B - User plus server machine.](#22-alternative-b---user-machine-plus-server-machine)
 - 3.[Data Architecture](#3-data-architecture)
-- 5.[Data description](#5-data-description)
+- 4.[Data description](#4-data-description)
 - 6.[Instructions on how to replicate the project](#6-instructions-on-how-to-replicate-the-project)
   - 6.1.[Setting up Google Cloud Platform account](#61-setting-up-google-cloud-platform-account)
   - 6.2.[Creating a VM Instance on Google Compute Engine](#62-creating-a-vm-instance-on-google-compute-engine)
@@ -65,7 +65,7 @@ For setting up the VM Instance or Local Machine please install these tools:
 
 After installed Miniconda environment please install the requirements file 
 
-### 2.1 Alternative A - Only one host machine
+### 2.1 Alternative A - One host machine
 
 - <p align="justify">
   <b>Docker-compose</b> : for creating the airflow docker image, mlflow docker image and rdbms system (postgress) docker image.
@@ -158,3 +158,89 @@ After installed Miniconda environment please install the requirements file
 <p align="center">
   <img src="images\diagram_v3.svg">
 </p>
+
+## 4. Data description
+
+<p align="justify">
+The source of information is public, that means everyone has acces to this information. Also, this data is provided by the open data platform of IFT. 
+</p>
+
+<p align="justify">
+ This information si provided in csv format, also I provide a google sheets document where is the original schema structure and data description of the tables. This information is uploaded monthly.
+</p>
+
+> https://docs.google.com/spreadsheets/d/176qSChhhpF43hzslsFscsAcBblJ0Wa_cyBHnzWTq1Eg/edit?usp=sharing
+
+<b>Tables:</b>
+
+- Lineas
+- Tráfico de datos
+- Indice de concentración
+- Participacion de mercado
+
+## 6. Instructions on how to replicate the project
+### 6.1. Setting up alternative A
+For this option need a host machine with Linux included, I used Debian distribution but is not necesary. You can use a virtual machine or your own computer, a good option if you don´t have a linux distribution instance yoou can use github codespace.
+
+#### 6.1.1 Setting up instance.
+Install the listed tools in your instance:
+
+- Miniconda environment
+- Docker
+- Docker-Compose
+- terraform
+- git
+- AWS
+If you want steps for installing those tools, please check [`here`](./machine_configuration.md).
+
+#### 6.1.2 Creating fyle system.
+
+After finished point [6.1.1 Setting up instance.](#-setting-up-instance). Please copy this repository in a folder.
+
+#### 6.1.3 Creating AWS S3 Bucket.
+Inside of directory aws_infrastructure resides the tf files that allows to create a simple s3 bucket with standard configuration.
+In order to run configuration you need to have your AWS credentials as environment variables after you have your credentials you can use the next command inside the directory /aws_infrastructure to initializate terraform and the setup of AWS. You can modify the variables.tf files if you want to change the bucket name and the region. 
+
+```
+terraform init 
+```
+
+Use the next command to create the AWS infrastructure with terraform.
+
+```
+terraform apply
+```
+
+You can always check if your bucket has beeen created using AWS cli. 
+
+```
+aws s3 ls
+```
+
+#### 6.1.3 Creating services with docker-compose
+
+Inside of directory airflow_mlflow_files please create a .env file with these variables and fill then with your own choises. Be carefull the name you use in the POSTGRESS_DB variable because it is going to be the db used for airflow so maybe is better to leave it just like this but is up to you. 
+
+```
+AIRFLOW_UID=1001
+POSTGRES_USER="user"
+POSTGRES_PASSWORD="password"
+POSTGRES_DB="airflow"
+_AIRFLOW_WWW_USER_USERNAME="user"
+_AIRFLOW_WWW_USER_PASSWORD="user"
+BUCKET="s3://your_bucket_name/mlflow/"
+```
+
+Inside of directory airflow_mlflow_files resides a yaml file that have the configurations to install the images of airflow, mlflow and postgress. Please check if you´re inside the /airflow_mlflow_files directory and run the next command.
+
+```
+docker-compose up --build
+```
+
+Feel free to not use the --build command this is only to see the logs of the services.
+
+You can check if the containers are up using 
+
+```
+docker ps
+```
