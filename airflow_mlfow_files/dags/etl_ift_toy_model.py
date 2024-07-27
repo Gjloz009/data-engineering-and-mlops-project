@@ -2,18 +2,37 @@ from airflow import DAG
 from airflow.decorators import task
 from airflow.utils.log.logging_mixin import LoggingMixin
 from airflow.models.param import Param
-from datetime import datetime
+from datetime import datetime, timedelta
 from schemas_tweaks import diccionario_datos
 import functions_ift as f
 
-with DAG(
-    dag_id="ift_etl_toy_model",
-    dag_display_name="etl ift toy model",
-    schedule=None,
-    start_date=datetime(2023, 1, 1),
-    catchup=False,
-    tags=["ift","etl","working"],
-    params={
+default_args = {
+    'owner': 'Gustavo',
+    'depends_on_past': False,
+    'start_date': datetime(2024, 7, 27),
+    'email': ['jafet.fl@gmail.com'],
+    'email_on_failure': True,
+    'email_on_retry': True,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+    'schedule_interval': '@hourly',
+        # 'queue': 'bash_queue',
+        # 'pool': 'backfill',
+        # 'priority_weight': 10,
+    'end_date': datetime(2024, 7, 27),
+        # 'wait_for_downstream': False,
+        # 'sla': timedelta(hours=2),
+        # 'execution_timeout': timedelta(seconds=300),
+        # 'on_failure_callback': some_function, # or list of functions
+        # 'on_success_callback': some_other_function, # or list of functions
+        # 'on_retry_callback': another_function, # or list of functions
+        # 'sla_miss_callback': yet_another_function, # or list of functions
+        # 'on_skipped_callback': another_function, #or list of functions
+        # 'trigger_rule': 'all_success'
+
+}
+
+params = {
         "tabla_lineas": Param(
             "TD_LINEAS_INTMOVIL_ITE_VA",
             type="string",
@@ -45,6 +64,14 @@ with DAG(
             description_md = ""
         )        
     }
+
+with DAG(
+    dag_id="ift_etl_toy_model",
+    dag_display_name="etl ift toy model",
+    catchup=False,
+    tags=["ift","etl","working"],
+    default_args = default_args,
+    params=params
 ) as dag:
 
     @task(task_id="Download_files")
