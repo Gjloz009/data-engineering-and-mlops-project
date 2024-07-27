@@ -7,12 +7,12 @@ from schemas_tweaks import diccionario_datos
 import functions_ift as f
 
 with DAG(
-    dag_id="ift_etl",
-    dag_display_name="ETL IFT TABLES",
+    dag_id="ift_etl_toy_model",
+    dag_display_name="etl ift toy model",
     schedule=None,
     start_date=datetime(2023, 1, 1),
     catchup=False,
-    tags=["ift","etl"],
+    tags=["ift","etl","working"],
     params={
         "tabla_lineas": Param(
             "TD_LINEAS_INTMOVIL_ITE_VA",
@@ -79,19 +79,19 @@ with DAG(
             raise
 
 
-    @task(task_id="Upload_files")
-    def task_3(task_2_result,parametro_name,bucket_name):
-        try:
-            task_transformed_2 = f.dict_to_df(task_2_result)
-
-            LoggingMixin().log.info("Loading of file in time")
-            
-            f.upload_df(task_transformed_2,bucket_name,parametro_name)
-        
-        except Exception as e:
-            LoggingMixin().log.error(f"Error in task_3: {str(e)}")
-            raise 
-
+ #   @task(task_id="Upload_files")
+ #   def task_3(task_2_result,parametro_name,bucket_name):
+ #       try:
+ #           task_transformed_2 = f.dict_to_df(task_2_result)
+#
+ #           LoggingMixin().log.info("Loading of file in time")
+ #           
+ #           f.upload_df(task_transformed_2,bucket_name,parametro_name)
+ #       
+ #       except Exception as e:
+ #           LoggingMixin().log.error(f"Error in task_3: {str(e)}")
+ #           raise 
+ #
     primer_paso = [
         task_1(dag.params['tabla_lineas']),
         task_1(dag.params['tabla_tdd']),
@@ -104,8 +104,8 @@ with DAG(
         task_2(primer_paso[2],dag.params['tabla_ihh']),
         task_2(primer_paso[3],dag.params['tabla_sm']),]
         
-    tercer_paso = [
-        task_3(segundo_paso[0],dag.params['tabla_lineas'],dag.params['bucket']),
-        task_3(segundo_paso[1],dag.params['tabla_tdd'],dag.params['bucket']),
-        task_3(segundo_paso[2],dag.params['tabla_ihh'],dag.params['bucket']),
-        task_3(segundo_paso[3],dag.params['tabla_sm'],dag.params['bucket'])]
+    #tercer_paso = [
+    #    task_3(segundo_paso[0],dag.params['tabla_lineas'],dag.params['bucket']),
+    #    task_3(segundo_paso[1],dag.params['tabla_tdd'],dag.params['bucket']),
+    #    task_3(segundo_paso[2],dag.params['tabla_ihh'],dag.params['bucket']),
+    #    task_3(segundo_paso[3],dag.params['tabla_sm'],dag.params['bucket'])]
