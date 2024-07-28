@@ -44,14 +44,14 @@ diccionario_datos = {
             "TRAF_TB_3G_E":pl.Float32,
             "TRAF_TB_4G_E":pl.Float32,
             "TRAF_TB_NO_ESPECIFICADO_E":pl.Float32,
-            "TRAF_TB_E":pl.Float32
+            "TOTAL_TB_E":pl.Float32
         },
         "tweak_columns":[
             #pl.col('TRAF_TB_2G_E').cast(pl.Float32),
             #pl.col('TRAF_TB_3G_E').str.replace_all(",","").cast(pl.Float32),
             #pl.col('TRAF_TB_4G_E').str.replace_all(",","").cast(pl.Float32),
             #pl.col('TRAF_TB_NO_ESPECIFICADO_E').str.replace_all(",","").cast(pl.Float32),
-            #pl.col('TRAF_TB_E').str.replace_all(",","").cast(pl.Float32),
+            #pl.col('TOTAL_TB_E').str.replace_all(",","").cast(pl.Float32),
             pl.col('FOLIO').cast(pl.Int32),
             pl.col("FECHA").str.to_date("%d/%m/%Y")
             #pl.coalesce(pl.col('FECHA').str.to_date(format="%d%b%Y",strict=False),pl.col('FECHA').str.to_date(format="%d-%b-%y",strict=False))
