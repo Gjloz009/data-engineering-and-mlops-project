@@ -1,1 +1,4 @@
 jupyter 
+hvplot
+pyparsing
+pyarrow
