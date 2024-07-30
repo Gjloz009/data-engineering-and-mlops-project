@@ -15,7 +15,7 @@ def download_files(table_name: str) -> pl.DataFrame:
     response.encoding = 'utf-8'
     csv_string = StringIO(response.text)
     
-    return pl.read_csv(csv_string)
+    return pl.read_csv(csv_string,infer_schema_length=10000)
     
 def tweak_df(df: pl.DataFrame, columns_transformations: list, schema: dict) -> pl.DataFrame:
   # aplicación de funciones para el df
