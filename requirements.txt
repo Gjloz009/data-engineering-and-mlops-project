@@ -2,3 +2,5 @@ jupyter
 hvplot
 pyparsing
 pyarrow
+seaborn
+scikit-learn
