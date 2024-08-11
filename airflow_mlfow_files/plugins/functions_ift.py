@@ -27,7 +27,7 @@ def dict_to_df(dict):
 
 def upload_df(df: pl.DataFrame, bucket_name: str, file_name: str):
     fs = s3fs.S3FileSystem()
-    destination = f"s3://{bucket_name}/{file_name}.parquet"
+    destination = f"s3://{bucket_name}/historical/{file_name}.parquet"
     try:
         with fs.open(destination, mode = 'wb') as f:
             df.write_parquet(f)
