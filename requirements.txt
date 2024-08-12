@@ -4,3 +4,5 @@ pyparsing
 pyarrow
 seaborn
 scikit-learn
+mlflow
+boto3
