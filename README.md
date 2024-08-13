@@ -18,11 +18,19 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
   - 2.2.[Alternative B - User plus server machine.](#22-alternative-b---user-machine-plus-server-machine)
 - 3.[Data Architecture](#3-data-architecture)
 - 4.[Data description](#4-data-description)
-- 6.[Instructions on how to replicate the project](#6-instructions-on-how-to-replicate-the-project)
-  - 6.1.[Setting up Google Cloud Platform account](#61-setting-up-google-cloud-platform-account)
-  - 6.2.[Creating a VM Instance on Google Compute Engine](#62-creating-a-vm-instance-on-google-compute-engine)
-  - 6.3.[VM instance connection configuration](#63-vm-instance-connection-configuration)
-  - 6.4.[Setting up VM instance](#64-setting-up-vm-instance)
+- 5.[Instructions on how to replicate the project](#5-instructions-on-how-to-replicate-the-project)
+  - 5.1.[Setting up alternative A](#51-setting-up-alternative-A)
+    - 5.1.1.[Setting up instance](#511-setting-up-instance)
+    - 5.1.2.[Creating file system](#512-creating-file-system)
+    - 5.1.3.[Creating AWS S3 Bucket](#513-creating-aws-s3-bucket)
+    - 5.1.4.[Creating services with docker-compose](#514-creating-services-with-docker--compose)
+  - 5.2 [Setting uo alternative B](#52-setting-up-alternative-B)
+    - 5.2.1 [](#) 
+- 6.[Alternative A](#6-alternative-a) 
+  - 6.1.[Testing the ETL pipeline](#61-testing-the-etl-pipeline)
+  - 6.2.[Creating AWS S3 Bucket](#62-creating-aws-s3-bucket)
+  - 5.3.[VM instance connection configuration](#63-vm-instance-connection-configuration)
+  - 5.4.[Setting up VM instance](#64-setting-up-vm-instance)
 - 7.[Alternative A - Local](#7-alternative-a---local)
   - 7.1.[Creating a docker-compose](#71-creating-a-docker-compose)
   - 7.2.[Running a docker-compose](#72-running-a-docker-compose)
@@ -179,11 +187,11 @@ The source of information is public, that means everyone has acces to this infor
 - Indice de concentración
 - Participacion de mercado
 
-## 6. Instructions on how to replicate the project
-### 6.1. Setting up alternative A
+## 5. Instructions on how to replicate the project
+### 5.1. Setting up alternative A
 For this option need a host machine with Linux included, I used Debian distribution but is not necesary. You can use a virtual machine or your own computer, a good option if you don´t have a linux distribution instance yoou can use github codespace.
 
-#### 6.1.1 Setting up instance.
+#### 5.1.1 Setting up instance.
 Install the listed tools in your instance:
 
 - Miniconda environment
@@ -195,11 +203,11 @@ Install the listed tools in your instance:
   
 If you want steps for installing those tools, please check [`here`](./create_instance.md).
 
-#### 6.1.2 Creating fyle system.
+#### 5.1.2 Creating fyle system.
 
 After finished point [6.1.1 Setting up instance.](#-setting-up-instance). Please copy this repository in a folder.
 
-#### 6.1.3 Creating AWS S3 Bucket.
+#### 5.1.3 Creating AWS S3 Bucket.
 Inside of directory aws_infrastructure resides the tf files that allows to create a simple s3 bucket with standard configuration.
 In order to run configuration you need to have your AWS credentials as environment variables after you have your credentials you can use the next command inside the directory /aws_infrastructure to initializate terraform and the setup of AWS. You can modify the variables.tf files if you want to change the bucket name and the region. 
 
@@ -219,7 +227,7 @@ You can always check if your bucket has beeen created using AWS cli.
 aws s3 ls
 ```
 
-#### 6.1.3 Creating services with docker-compose
+#### 5.1.4 Creating services with docker-compose
 
 Inside of directory airflow_mlflow_files please create a .env file with these variables and fill then with your own choises. Be carefull the name you use in the POSTGRESS_DB variable because it is going to be the db used for airflow so maybe is better to leave it just like this but is up to you. The AIRFLOW_UID is only your user id you can see it using the command id -u. Also create these directories if they dont exists.
 
@@ -250,3 +258,34 @@ You can check if the containers are up using
 ```
 docker ps
 ```
+### 5.2. Setting up alternative B
+In this case follow the instructions from 5.1.1 to 5.1.4 but in the machine that you want to use like a server 
+### 5.2.1 Setting up user machine 
+Please install the libraries that are required in order to comunicate with mlflow, s3 ,aws.
+
+## 6. Alternative A
+### 6.1. Testing the ETL pipeline 
+In this section I'm using the airflow orchestator to automate the ETL process. Inside the <code>airflow_mlflow_files/dags</code> is the <code>etl_ift.py</code> code that do all the ETL pipe. now this code have two differents modules that were created that have the functions that are used to download the files and the data types transformations also the tweak for some columns  <code>airflow_mlflow_files/pluggins/schemas_tweaks</code>, <code>airflow_mlflow_files/pluggins/functions_ift</code>. This code is constructed in order to executate every 4 months, because this is the time that the origin updates. In general this pipe extracts the code, do some transformations and upload to an S3 Bucket. 
+
+<p align="center">
+  <img src="images\airflow_dashboard_success_1.png">
+</p>
+
+<p align="center">
+  <img src="images\subidas.png">
+</p>
+
+### 6.2 Testing the Mlops pipeline
+In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the Machine Learning cycle, using differents libraries to plotting, data manipulations, Machine learning and Mlops. In the <code>jupyter_files/EDA_1.ipynb</code> is all the exploratory analysis and in the <code>jupyter_files</Model_and_MLFlow.ipynbcode> is an example of how to use mlflow and creating the model and playin with them. 
+
+<p align="center">
+  <img src="images\mlflow_code.png">
+</p>
+
+<p align="center">
+  <img src="images\mlflow_dashboard.png">
+</p>
+
+<p align="center">
+  <img src="images\mlflow_s3_artifacts.png">
+</p>
