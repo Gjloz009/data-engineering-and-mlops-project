@@ -30,6 +30,7 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 - 6.[Testing](#6-testing) 
   - 6.1.[Testing the ETL pipeline](#61-testing-the-etl-pipeline)
   - 6.2.[Testing the MLops pipeline](#62-testing-the-mlops-pipeline)
+  - 6.3 [Looker Studio](#63-looker-studio)
 - 7.[Future enhancements ](#9-future-enhancements)
 - 8.[References](#10-references)
 ---
@@ -276,4 +277,12 @@ In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the M
   <img src="images\mlflow_s3_artifacts.png">
 </p>
 
+### 6.3 Looker Studio
+In looker, made a simple interactive dashboard of the market share in order to be more clear.
+
+<p align="center">
+  <img src="images\dashboard_market_share.png">
+</p>
+
 ## Future enhancements
+- 
