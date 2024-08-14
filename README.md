@@ -285,4 +285,7 @@ In looker, made a simple interactive dashboard of the market share in order to b
 </p>
 
 ## Future enhancements
-- 
+- The ETL process have some troubles downloading the files and for that reason the child tasks are flagged as wrong, maybe do it sequentaily all the etl process per table make better results.
+- Make a better model for my project, the model that is in 6.2 is only an example showing the proccess but I have to tweak more the model, a linear regression maybe is not the best choise for a time serie.
+- Tweak the dashboard; right now the dashboard is quite simple , maybe helps to get more an idea of what probler I'm trying to forecast but the problem has more information.
+- migrate all to cloud, many things in this project can be all in cloud, i'm thinking in using Redshift for data analysis, machine learning,tabular data storage, quicksight for dashboard creation, S3 for objects storage more like an data lake and Managed workflows (MWAA)for orchestation.
