@@ -25,30 +25,13 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
     - 5.1.3.[Creating AWS S3 Bucket](#513-creating-aws-s3-bucket)
     - 5.1.4.[Creating services with docker-compose](#514-creating-services-with-docker--compose)
   - 5.2 [Setting uo alternative B](#52-setting-up-alternative-b)
-    - 5.2.1 [](#) 
-- 6.[Alternative A](#6-alternative-a) 
+    - 5.2.1 [Setting up server machine](#521-setting-up-server-machine)
+    - 5.2.2 [Setting up user machine](#521-setting-up-user-machine) 
+- 6.[Testing](#6-testing) 
   - 6.1.[Testing the ETL pipeline](#61-testing-the-etl-pipeline)
-  - 6.2.[Creating AWS S3 Bucket](#62-creating-aws-s3-bucket)
-  - 5.3.[VM instance connection configuration](#63-vm-instance-connection-configuration)
-  - 5.4.[Setting up VM instance](#64-setting-up-vm-instance)
-- 7.[Alternative A - Local](#7-alternative-a---local)
-  - 7.1.[Creating a docker-compose](#71-creating-a-docker-compose)
-  - 7.2.[Running a docker-compose](#72-running-a-docker-compose)
-  - 7.3.[Port Forwarding](#73-port-forwarding)
-  - 7.4.[Testing the pipeline](#74-testing-the-pipeline)
-  - 7.5.[Orchestrating with prefect](#75-orchestrating-with-prefect)
-- 8.[Alternative B - Cloud](#8-alternative-b---cloud)
-  - 8.1.[Creating service account](#81-creating-service-account)
-  - 8.2.[Edit Permissions](#82-edit-permissions)
-  - 8.3.[Installing Terraform](#83-installing-terraform)
-  - 8.4.[Setting up Terraform files](#84-setting-up-terraform-files)
-  - 8.5.[Orchestrating with prefect](#85-orchestrating-with-prefect)
-  - 8.6.[Deployment with prefect](#86-deployment-with-prefect)
-  - 8.7.[Running Prefect flows on docker containers](#87-running-prefect-flows-on-docker-containers)
-  - 8.8.[Dbt](#88-dbt)
-  - 8.9.[Looker Studio](#89-looker-studio)
-- 9.[Future enhancements ](#9-future-enhancements)
-- 10.[References](#10-references)
+  - 6.2.[Testing the MLops pipeline](#62-testing-the-mlops-pipeline)
+- 7.[Future enhancements ](#9-future-enhancements)
+- 8.[References](#10-references)
 ---
 
 ## 1. Objective
@@ -293,4 +276,4 @@ In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the M
   <img src="images\mlflow_s3_artifacts.png">
 </p>
 
-## Future Enhacenments
+## Future enhancements
