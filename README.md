@@ -19,12 +19,12 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 - 3.[Data Architecture](#3-data-architecture)
 - 4.[Data description](#4-data-description)
 - 5.[Instructions on how to replicate the project](#5-instructions-on-how-to-replicate-the-project)
-  - 5.1.[Setting up alternative A](#51-setting-up-alternative-A)
+  - 5.1.[Setting up alternative A](#51-setting-up-alternative-a)
     - 5.1.1.[Setting up instance](#511-setting-up-instance)
     - 5.1.2.[Creating file system](#512-creating-file-system)
     - 5.1.3.[Creating AWS S3 Bucket](#513-creating-aws-s3-bucket)
     - 5.1.4.[Creating services with docker-compose](#514-creating-services-with-docker--compose)
-  - 5.2 [Setting uo alternative B](#52-setting-up-alternative-B)
+  - 5.2 [Setting uo alternative B](#52-setting-up-alternative-b)
     - 5.2.1 [](#) 
 - 6.[Alternative A](#6-alternative-a) 
   - 6.1.[Testing the ETL pipeline](#61-testing-the-etl-pipeline)
@@ -53,7 +53,7 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 
 ## 1. Objective
 <p align="justify">
-This project aims to create a Machine Learning Operations environment for processing and analyzing data from the Federal Telecommunications Institute of México. this environment also consider the ingestion and pre-processing of the information
+This project aims to create a Machine Learning Operations environment for processing and analyzing data from the Federal Telecommunications Institute of México. this environment also consider the ingestion and pre-processing of the information.
 </p>
 
 You can take a look of the information about ift and the source of the files 
@@ -71,7 +71,7 @@ For setting up the VM Instance or Local Machine please install these tools:
 - AWS CLI
 - Terraform
 
-After installed Miniconda environment please install the requirements file 
+After installed Miniconda environment please install the requirements file.
 
 ### 2.1 Alternative A - One host machine
 
@@ -259,11 +259,14 @@ You can check if the containers are up using
 docker ps
 ```
 ### 5.2. Setting up alternative B
-In this case follow the instructions from 5.1.1 to 5.1.4 but in the machine that you want to use like a server 
-### 5.2.1 Setting up user machine 
-Please install the libraries that are required in order to comunicate with mlflow, s3 ,aws.
 
-## 6. Alternative A
+#### 5.2.1 Setting up server machine
+In this case follow the instructions from 5.1.1 to 5.1.4 but in the machine that you want to use like a server to host Mlops, Airflow, Postgress
+
+#### 5.2.2 Setting up user machine 
+Please install the libraries that are required in order to comunicate with the server machine and S3.
+
+## 6. Testing
 ### 6.1. Testing the ETL pipeline 
 In this section I'm using the airflow orchestator to automate the ETL process. Inside the <code>airflow_mlflow_files/dags</code> is the <code>etl_ift.py</code> code that do all the ETL pipe. now this code have two differents modules that were created that have the functions that are used to download the files and the data types transformations also the tweak for some columns  <code>airflow_mlflow_files/pluggins/schemas_tweaks</code>, <code>airflow_mlflow_files/pluggins/functions_ift</code>. This code is constructed in order to executate every 4 months, because this is the time that the origin updates. In general this pipe extracts the code, do some transformations and upload to an S3 Bucket. 
 
@@ -276,7 +279,7 @@ In this section I'm using the airflow orchestator to automate the ETL process. I
 </p>
 
 ### 6.2 Testing the Mlops pipeline
-In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the Machine Learning cycle, using differents libraries to plotting, data manipulations, Machine learning and Mlops. In the <code>jupyter_files/EDA_1.ipynb</code> is all the exploratory analysis and in the <code>jupyter_files</Model_and_MLFlow.ipynbcode> is an example of how to use mlflow and creating the model and playin with them. 
+In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the Machine Learning cycle, using differents libraries to plotting, data manipulations, Machine learning and Mlops. In the <code>jupyter_files/EDA_1.ipynb</code> is all the exploratory analysis and in the <code>jupyter_files/Model_and_MLFlow.ipynb</code> is an example of how to use mlflow and creating the model and playin with them. 
 
 <p align="center">
   <img src="images\mlflow_code.png">
@@ -289,3 +292,5 @@ In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the M
 <p align="center">
   <img src="images\mlflow_s3_artifacts.png">
 </p>
+
+## Future Enhacenments
