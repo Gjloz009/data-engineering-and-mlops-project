@@ -12,7 +12,7 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 
 ---
 ## Index
-- 1.[Objective](#1-objective)
+- 1.[Objective and description of the problem](#1-objective-and-description-of-the-problem)
 - 2.[Technologies](#2-technologies)
   - 2.1.[Alternative A - One host machine.](#21-alternative-a---one-host-machine)
   - 2.2.[Alternative B - User plus server machine.](#22-alternative-b---user-machine-plus-server-machine)
@@ -34,10 +34,10 @@ The Federal Telecommunications Institute (IFT) is an autonomous agency of the Me
 - 7.[Future enhancements ](#9-future-enhancements)
 - 8.[References](#10-references)
 ---
-
-## 1. Objective
+## 1. Objective and description of the problem
 <p align="justify">
 This project aims to create a Machine Learning Operations environment for processing and analyzing data from the Federal Telecommunications Institute of México. this environment also consider the ingestion and pre-processing of the information.
+
 </p>
 
 You can take a look of the information about ift and the source of the files 
