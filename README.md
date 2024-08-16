@@ -1,4 +1,4 @@
-# Instituto Federal de Telecomunicaciones (IFT) Federal Institute of Telecom
+# Data engineering & Mlops proyect using IFT data
 
 <p align="center">
   <img src="images\ift_pict.png">
