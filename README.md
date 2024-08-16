@@ -263,7 +263,7 @@ In this section I'm using the airflow orchestator to automate the ETL process. I
 </p>
 
 ### 6.2 Testing the Mlops pipeline
-In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the Machine Learning cycle, using differents libraries to plotting, data manipulations, Machine learning and Mlops. In the <code>jupyter_files/EDA_1.ipynb</code> is all the exploratory analysis and in the <code>jupyter_files/Model_and_MLFlow.ipynb</code> is an example of how to use mlflow and creating the model and playin with them. 
+In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the Machine Learning cycle, using differents libraries to plotting, data manipulations, Machine learning and Mlops. In the <code>jupyter_files/EDA_1.ipynb</code> is all the exploratory analysis and in the <code>jupyter_files/Model_and_MLFlow.ipynb</code> is an example of how to use mlflow and creating the model and playin with them, also exist a very simple example of production state of the model <code>predict</code> <code>test</code>.
 
 <p align="center">
   <img src="images\mlflow_code.png">
@@ -275,6 +275,15 @@ In this section <code>jupyter_files</code> I'm using Jupyter Lab to do all the M
 
 <p align="center">
   <img src="images\mlflow_s3_artifacts.png">
+</p>
+
+<p align="center">
+  <img src="images\mlflow_register.png">
+</p>
+
+this is only a comment becuse in the new version of mlflow in deprecated the option to change the state of the registred model. 
+<p align="center">
+  <img src="images\mlflow_stagind_deprecated.png">
 </p>
 
 ### 6.3 Looker Studio
